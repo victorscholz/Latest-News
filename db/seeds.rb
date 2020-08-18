@@ -26,11 +26,19 @@ u2 = User.create(name: 'Karan', age: 99)
 u3 = User.create(name: 'Miso', age: 3)
 u4 = User.create(name: 'Kiwi', age: 2)
 
-
-news1 = NewsArticle.create(title: "first article", published: "2020-08-09", category: "Current Events")
-news2 = NewsArticle.create(title: "second article", published: "2020-09-10", category: "Food")
-news3 = NewsArticle.create(title: "third article", published: "2020-10-11", category: "Science")
-
-10.times do
-    UserNewsArticle.create(favorites: NewsArticle.all.sample.title, date_added: NewsArticle.all.sample.published, user_id: User.all.sample.id, news_article_id: NewsArticle.all.sample.id)
+news_info["news"].each do |article|
+    NewsArticle.create(title: article["title"],
+    published: article["published"],
+    category: article["category"])
 end
+
+binding.pry
+
+
+# news1 = NewsArticle.create(title: "first article", published: "2020-08-09", category: "Current Events")
+# news2 = NewsArticle.create(title: "second article", published: "2020-09-10", category: "Food")
+# news3 = NewsArticle.create(title: "third article", published: "2020-10-11", category: "Science")
+
+# 10.times do
+#     UserNewsArticle.create(favorites: NewsArticle.all.sample.title, date_added: NewsArticle.all.sample.published, user_id: User.all.sample.id, news_article_id: NewsArticle.all.sample.id)
+# end

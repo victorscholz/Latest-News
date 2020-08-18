@@ -6,5 +6,11 @@
 <h2>My News Articles</h2>
 
 <% @user.user_news_articles.each do |user_news_article| %>
-    <p><%= user_news_article.favorites %></p>
+    <p><%= link_to user_news_article.news_article.title, news_article_path(user_news_article) %></p>
 <% end %>
+
+<br>
+
+<%= link_to 'My favorites', user_news_article_path %>
+
+

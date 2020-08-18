@@ -33,7 +33,8 @@ while NewsArticle.all.length < 500 do
         NewsArticle.create(title: article["title"],
         published: article["published"],
         description: article["description"],
-        category: article["category"])
+        category: article["category"],
+        )
     end
     news_info = JSON.parse(RestClient.get("https://api.currentsapi.services/v1/latest-news?language=en&country=US&page_number=#{count}" + "#{karan_api_key}"))
     count += 1

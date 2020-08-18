@@ -1,7 +1,8 @@
 <h1>News Article Show Page</h1>
 
 <p>Title: <%= @news_article.title %></p>
-<p>Date: <%= @news_article.published %></p>
-<p>Topic: <%= @news_article.category %></p>
+<p>Date Published: <%= @news_article.published %></p>
+<p>Description: <%= @news_article.description %></p>
+<p>Category: <%= @news_article.category %></p>
 
 <%= link_to 'Index page', news_articles_path %>

@@ -18,21 +18,28 @@ UserNewsArticle.delete_all
 a = ENV["news"]
 news_api_data = RestClient.get(a)
 news_info = JSON.parse(news_api_data)
+karan_api_key = ENV["karan_api"]
 
 # binding.pry
 
-u1 = User.create(name: 'Victor', age: 27)
-u2 = User.create(name: 'Karan', age: 99)
-u3 = User.create(name: 'Miso', age: 3)
-u4 = User.create(name: 'Kiwi', age: 2)
+User.create(name: 'Victor', age: 27)
+User.create(name: 'Karan', age: 99)
+User.create(name: 'Miso', age: 3)
+User.create(name: 'Kiwi', age: 2)
 
-news_info["news"].each do |article|
-    NewsArticle.create(title: article["title"],
-    published: article["published"],
-    category: article["category"])
+count = 0
+while NewsArticle.all.length < 500 do
+    news_info["news"].each do |article|
+        NewsArticle.create(title: article["title"],
+        published: article["published"],
+        description: article["description"],
+        category: article["category"])
+    end
+    news_info = JSON.parse(RestClient.get("https://api.currentsapi.services/v1/latest-news?language=en&country=US&page_number=#{count}" + "#{karan_api_key}"))
+    count += 1
 end
 
-binding.pry
+# binding.pry
 
 
 # news1 = NewsArticle.create(title: "first article", published: "2020-08-09", category: "Current Events")

@@ -1,0 +1,9 @@
+<h1>Add News Article</h1>
+
+<%= form_for @user_news_article do |f| %>
+    <%= f.label :news_article.id %>
+    <%= f.collection_select :news_article.id, NewsArticle.all, :id, :title%>
+    <%= f.label :user.id %>
+    <%= f.collection_select :user.id, User.all, :id, :name%>
+    <%= f.submit %>
+<% end %>

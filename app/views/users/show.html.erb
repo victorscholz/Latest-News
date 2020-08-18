@@ -1,0 +1,10 @@
+<h1>User Show Page</h1>
+
+<p>Name: <%= @user.name %></p>
+<p>Age: <%= @user.age %></p>
+
+<h2>My News Articles</h2>
+
+<% @user.user_news_articles.each do |user_news_article| %>
+    <p><%= user_news_article.favorites %></p>
+<% end %>

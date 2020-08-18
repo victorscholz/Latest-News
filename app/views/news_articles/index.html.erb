@@ -1,0 +1,7 @@
+<h1>Latest News Articles</h1>
+
+<ul>
+    <% @news_articles.each do |news_article| %>
+        <li><%= link_to news_article.title, news_article %></li>
+    <% end %>
+</ul>

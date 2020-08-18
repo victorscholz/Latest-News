@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  favorites: MyString
+  date_added: 2020-08-18
+  user_id: 1
+  news_article_id: 1
+
+two:
+  favorites: MyString
+  date_added: 2020-08-18
+  user_id: 1
+  news_article_id: 1

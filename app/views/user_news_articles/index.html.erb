@@ -1,0 +1,7 @@
+<h1>My News Articles</h1>
+
+<ul>
+    <% @user_news_articles.each do |user_news_article| %>
+        <li><%= link_to user_news_article.title, user_news_article %></li>
+    <% end %>
+</ul>

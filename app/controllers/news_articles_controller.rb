@@ -18,6 +18,6 @@ class NewsArticlesController < ApplicationController
     private
 
     def news_params
-        params.require[:news_articles].permit[:title, :published, :description, :category]
+        params.require[:news_articles].permit[:title, :published, :description, :category, :img_url, :url]
     end
 end

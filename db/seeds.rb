@@ -34,6 +34,8 @@ while NewsArticle.all.length < 500 do
         published: article["published"],
         description: article["description"],
         category: article["category"],
+        img_url: article["image"],
+        url: article["url"]
         )
     end
     news_info = JSON.parse(RestClient.get("https://api.currentsapi.services/v1/latest-news?language=en&country=US&page_number=#{count}" + "#{karan_api_key}"))

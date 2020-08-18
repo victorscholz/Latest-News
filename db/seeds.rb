@@ -28,12 +28,12 @@ User.create(name: 'Miso', age: 3)
 User.create(name: 'Kiwi', age: 2)
 
 count = 0
-while NewsArticle.all.length < 500 do
+while NewsArticle.all.length < 50 do
     news_info["news"].each do |article|
         NewsArticle.create(title: article["title"],
         published: article["published"],
         description: article["description"],
-        category: article["category"],
+        category: article["category"][0],
         img_url: article["image"],
         url: article["url"]
         )

@@ -1,3 +1,4 @@
+<div class="container text-center">
 <h1>Add News Article</h1>
 
 <%= form_for @user_news_article do |f| %>
@@ -7,3 +8,4 @@
     <%= f.collection_select :user_id, User.all, :id, :name%>
     <%= f.submit %>
 <% end %>
+</div>

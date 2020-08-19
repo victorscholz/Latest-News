@@ -1,3 +1,4 @@
+<div class="container text-center">
 <h1>Create New User</h1>
 
 <% if flash[:my_errors] %>
@@ -8,11 +9,16 @@
 
 <%= form_for @user do |f| %>
 
-<%= f.label :name %>
-<%= f.text_field :name %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
 
-<%= f.label :age %>
-<%= f.number_field :age %>
-<%= f.submit %>
+    <%= f.label :age %>
+    <%= f.number_field :age %>
+
+    <%= f.label :password%>
+    <%= f.text_field :password%>
+
+    <%= f.submit %>
 
 <% end %>
+</div>

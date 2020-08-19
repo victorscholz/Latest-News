@@ -1,18 +1,14 @@
 class UsersController < ApplicationController
-    def index
-        @users = User.all
-        # delete later
-    end
-
+    skip_before_action :authorized, only: [:new, :create]
     def show
         find_user
 
-        # if @user == @current_user
-        #     render :show
-        # else 
-        #     flash[:error] = "can only see your profile"
-        #     redirect_to users_path
-        # end 
+        if @user == @current_user
+            render :show
+        else 
+            flash[:error] = "can only see your profile"
+            redirect_to users_path
+        end 
     end
 
     def new
@@ -20,12 +16,12 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.create(user_params)
-        if @user.valid?
-            session[:user_id] =  @user.id
-            redirect_to user_path(@user)
+        user = User.create(user_params)
+        if user.valid?
+            session[:user_id] =  user.id
+            redirect_to news_articles_path
         else
-            flash[:my_errors] = @user.errors.full_messages
+            flash[:my_errors] = user.errors.full_messages
             redirect_to new_user_path
         end
     end
@@ -41,7 +37,7 @@ class UsersController < ApplicationController
     end
 
     def destroy
-        find_user
+        user = User.find(params[:id])
         @user.destroy
         # flash.notice = "User '#{@user.name}' has been deleted"
         redirect_to user_path
@@ -50,7 +46,7 @@ class UsersController < ApplicationController
 private
 
     def user_params
-        params.require(:user).permit(:name, :age)
+        params.require(:user).permit(:name, :age, :password)
     end
 
     def find_user 

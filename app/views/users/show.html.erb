@@ -1,10 +1,10 @@
+<div class="container text-center">
 <h1>User Show Page</h1>
 
 <p>Name: <%= @user.name %></p>
 <p>Age: <%= @user.age %></p>
 
 <h2>My News Articles</h2>
-
 
     <% if @user.user_news_articles.empty?%>
         <p>You have no favorites</p> 
@@ -16,6 +16,7 @@
         <% end %> 
     <% end %>
 
+</div>
 
 
 

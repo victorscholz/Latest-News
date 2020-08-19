@@ -28,7 +28,7 @@ User.create(name: 'Miso', age: 15)
 User.create(name: 'Kiwi', age: 16)
 
 count = 0
-while NewsArticle.all.length < 50 do
+while NewsArticle.all.length < 30 do
     news_info["news"].each do |article|
         NewsArticle.create(title: article["title"],
         published: article["published"],

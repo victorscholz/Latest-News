@@ -1,10 +1,23 @@
-<h1>News Article Show Page</h1>
+<div class="container text-center">
+    <% if  session[:view_count] <= 3 %>
+        <h1 style="color: green;">You have <%= 3 - session[:view_count].to_i %> view left</h1>
 
-<p>Title: <%= @news_article.title %></p>
-<p>Date Published: <%= @news_article.published %></p>
-<p>Description: <%= @news_article.description %></p>
-<p>Category: <%= @news_article.category %></p>
-<p>Image:  <img class="show-img" src="<%= @news_article.img_url %>" alt="<%= @news_article.title %>"></p>
-<p>URL: <%= link_to @news_article.url, "#{@news_article.url}", :target => "_blank" %></p>
+        <h1>News Article Show Page</h1>
+        <br>
+        <br>
+        <h4>Title: <%= @news_article.title %></h4>
+        <p>Date Published: <%= @news_article.published %></p>
+        <p>Description: <%= @news_article.description %></p>
+        <p>Category: <%= @news_article.category %></p>
+        <p>Image:  <img class="show-img" src="<%= @news_article.img_url %>" alt="<%= @news_article.title %>" style="width:500px;height:250px;object-fit: cover;"></p>
+        <p>URL: <%= link_to @news_article.url, "#{@news_article.url}", :target => "_blank" %></p>
 
-<%= link_to 'Index page', news_articles_path %>
+        <%= link_to 'Index page', news_articles_path %>
+
+    <% else %>
+        <h1>Continue After Paying $5.00</h1>
+        <%= button_to "Pay $5", page_reset_path, method: :delete %>
+    <% end %>
+    
+</div>
+

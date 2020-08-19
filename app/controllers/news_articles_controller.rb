@@ -1,10 +1,18 @@
 class NewsArticlesController < ApplicationController
+    skip_before_action :authorized, only: [:index]
+
     def index
         @news_articles = NewsArticle.all
     end
 
     def show
         @news_article = NewsArticle.find(params[:id])
+
+        if session[:view_count]
+            session[:view_count] = session[:view_count] + 1
+        else 
+            session[:view_count] = 1
+        end 
     end
 
 

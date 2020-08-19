@@ -5,12 +5,17 @@
 
 <h2>My News Articles</h2>
 
-<% @user.user_news_articles.each do |user_news_article| %>
-    <p><%= link_to user_news_article.news_article.title, news_article_path(user_news_article) %></p>
-<% end %>
 
-<br>
+    <% if @user.user_news_articles.empty?%>
+        <p>You have no favorites</p> 
+        <br>
+        <p>Please visit the 'Add Article'</p>
+    <% else %>
+        <% @user.user_news_articles.each do |user_news_article| %>
+        <p><%= link_to user_news_article.news_article.title, news_article_path(user_news_article) %></p>
+        <% end %> 
+    <% end %>
 
-<%= link_to 'My favorites', user_news_article_path(@user.id) %>
+
 
 

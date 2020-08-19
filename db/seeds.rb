@@ -24,8 +24,8 @@ karan_api_key = ENV["karan_api"]
 
 User.create(name: 'Victor', age: 27)
 User.create(name: 'Karan', age: 99)
-User.create(name: 'Miso', age: 3)
-User.create(name: 'Kiwi', age: 2)
+User.create(name: 'Miso', age: 15)
+User.create(name: 'Kiwi', age: 16)
 
 count = 0
 while NewsArticle.all.length < 50 do

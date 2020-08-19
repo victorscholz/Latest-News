@@ -14,6 +14,13 @@ class NewsArticlesController < ApplicationController
         redirect_to news_article_path(@news_article)
     end
 
+    def destroy 
+        @news_article = NewsArticle.find(params[:id])
+        @news_article.destroy
+        
+        redirect_to news_articles_path
+    end 
+
 
     private
 

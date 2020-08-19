@@ -4,7 +4,7 @@ class UserNewsArticlesController < ApplicationController
     end
 
     def show
-        @user_news_article = UserNewsArticle.find(params[:id])
+        find_user_news_article
     end
 
     def new
@@ -12,7 +12,7 @@ class UserNewsArticlesController < ApplicationController
     end
 
     def edit
-        @user_news_article = UserNewsArticle.find(params[:id])
+        find_user_news_article
     end
 
     def create
@@ -26,7 +26,7 @@ class UserNewsArticlesController < ApplicationController
     end
 
     def update
-        @user_news_article = UserNewsArticle.find(params[:id])
+        find_user_news_article
         @user_news_article.update(user_news_params)
         redirect_to user_news_article_path(@user_news_article)
     end
@@ -35,5 +35,9 @@ class UserNewsArticlesController < ApplicationController
 
     def user_news_params
         params.require(:user_news_article).permit(:favorites, :date_added, :user_id, :news_article_id)
+    end
+
+    def find_user_news_article
+        @user_news_article = UserNewsArticle.find(params[:id])
     end
 end

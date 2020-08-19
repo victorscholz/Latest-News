@@ -6,6 +6,13 @@ class UsersController < ApplicationController
 
     def show
         find_user
+
+        # if @user == @current_user
+        #     render :show
+        # else 
+        #     flash[:error] = "can only see your profile"
+        #     redirect_to users_path
+        # end 
     end
 
     def new
@@ -15,6 +22,7 @@ class UsersController < ApplicationController
     def create
         @user = User.create(user_params)
         if @user.valid?
+            session[:user_id] =  @user.id
             redirect_to user_path(@user)
         else
             flash[:my_errors] = @user.errors.full_messages

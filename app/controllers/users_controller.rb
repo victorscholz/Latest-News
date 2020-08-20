@@ -37,11 +37,11 @@ class UsersController < ApplicationController
     end
 
     def destroy
-        user = User.find(params[:id])
-        @user.destroy
-        # flash.notice = "User '#{@user.name}' has been deleted"
+        user = User.find_by(id: session[:user_id])
+        user.news_articles.destroy
         redirect_to user_path
     end
+
 
 private
 

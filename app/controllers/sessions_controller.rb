@@ -9,6 +9,11 @@ class SessionsController < ApplicationController
 
     def new 
     end
+
+    def show
+      @user = User.find_by(id: session[:user_id])
+      redirect_to user_path(@user)
+    end
   
     def create 
       user = User.find_by(name: params[:session][:name])

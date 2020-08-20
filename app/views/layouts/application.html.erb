@@ -18,7 +18,7 @@
 
       <ul>
         <li><%= link_to 'News Home', news_articles_path %></li>
-        <li><%= link_to 'Users Home', users_path %></li>
+        <li><%= link_to 'User Home', current_user_path %></li>
         <li><%= link_to 'Add Article to Favorites', new_user_news_article_path %></li>
 
         <% if @current_user %>

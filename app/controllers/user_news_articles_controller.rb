@@ -5,10 +5,12 @@ class UserNewsArticlesController < ApplicationController
 
     def show
         find_user_news_article
+        # redirect_to user_path(@user)
     end
 
     def new
         @user_news_article = UserNewsArticle.new
+       
     end
 
     def edit
@@ -16,6 +18,7 @@ class UserNewsArticlesController < ApplicationController
     end
 
     def create
+        @current_user.user_news_articles.create(user_news_params)
         @user_news_article = UserNewsArticle.create(user_news_params)
         if @user_news_article.valid?
             redirect_to user_news_article_path(@user_news_article)
@@ -34,7 +37,7 @@ class UserNewsArticlesController < ApplicationController
     private
 
     def user_news_params
-        params.require(:user_news_article).permit(:favorites, :date_added, :user_id, :news_article_id)
+        params.require(:user_news_article).permit(:favorites, :date_added, :news_article_id)
     end
 
     def find_user_news_article

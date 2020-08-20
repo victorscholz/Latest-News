@@ -77,3 +77,10 @@ html body#bgimage {
     vertical-align: middle;
     border-radius: 20px;
   }
+
+  div.container > ul.article-list {
+    display: flex;
+    width: 100%!important;
+    margin: 0px;
+    padding: 0px;
+  }

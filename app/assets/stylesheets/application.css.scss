@@ -71,7 +71,7 @@ body, html {
   
     margin: 0px auto;
     margin-bottom: 10px;
-    max-width: 960px;
+    // max-width: 960px;
     /* padding: 1.25%;  */
     width: 85%;
     
@@ -99,4 +99,12 @@ body, html {
     text-align: center;
   }
   
-  
+  div.container > ul.article-list {
+    display: flex;
+    width: 100%!important;
+    margin: 0px!important;
+    padding: 0px!important;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+  }

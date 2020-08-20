@@ -18,12 +18,11 @@ class UserNewsArticlesController < ApplicationController
     end
 
     def create
-        @current_user.user_news_articles.create(user_news_params)
-        @user_news_article = UserNewsArticle.create(user_news_params)
-        if @user_news_article.valid?
-            redirect_to user_news_article_path(@user_news_article)
+        user_news_article = @current_user.user_news_articles.create(user_news_params)
+        if user_news_article.valid?
+            redirect_to user_path(@current_user)
         else
-            flash[:my_errors] = @user_news_article.errors.full_messages
+            flash[:my_errors] = user_news_article.errors.full_messages
             redirect_to new_user_news_article_path
         end
     end
@@ -35,9 +34,9 @@ class UserNewsArticlesController < ApplicationController
     end
 
     def destroy
-        user = User.find(params[:id])
-        user.news_articles.delete_article
-        redirect_to user_path
+        user_news_article = UserNewsArticle.find(params[:id])
+        user_news_article.destroy
+        redirect_to user_path(@current_user)
     end
 
     private

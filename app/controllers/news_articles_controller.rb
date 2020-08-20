@@ -1,5 +1,5 @@
 class NewsArticlesController < ApplicationController
-    skip_before_action :authorized, only: [:index]
+    skip_before_action :authorized, only: [:index, :show]
 
     def index
         @news_articles = NewsArticle.all

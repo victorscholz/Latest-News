@@ -34,6 +34,12 @@ class UserNewsArticlesController < ApplicationController
         redirect_to user_news_article_path(@user_news_article)
     end
 
+    def destroy
+        user = User.find(params[:id])
+        user.news_articles.delete_article
+        redirect_to user_path
+    end
+
     private
 
     def user_news_params

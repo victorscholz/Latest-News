@@ -1,10 +1,8 @@
 // Place all the styles related to the NewsArticles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-body {
-    background-image: url("https://images.freeimages.com/images/large-previews/862/latest-news-1516414.jpg");
-    
-  
+html body#bgimage {
+
   }
   
   .index-img {
@@ -47,25 +45,10 @@ body {
     text-align: center;
     // background-color: lightgrey;
     background-color: rgba(255, 255, 255, 0.7);
+    
   }
   
-  .nav {
-    // background: #fff;
-    background-image: url("https://img.freepik.com/free-photo/background-crumpled-paper-sheet_1194-7545.jpg?size=626&ext=jpg");
-    -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
-    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
-    box-shadow: 0 0 10px rgba(0,0,0,.3);
-    margin: 0px auto;
-    // margin-bottom: 10px;
-    max-width: 960px;
-    // padding: 2.25%; 
-    width: 95%;
-    max-height: 200px;
-    font-family: molle;
-    text-align: center;
-    vertical-align: middle;
-    border-radius: 20px;
-  }
+  
   
   .logo {
     max-height: 200px;

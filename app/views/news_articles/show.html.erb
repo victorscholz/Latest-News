@@ -9,10 +9,10 @@
         <p>Date Published: <%= @news_article.published %></p>
         <p>Description: <%= @news_article.description %></p>
         <p>Category: <%= @news_article.category %></p>
-        <p>Image:  <img class="show-img" src="<%= @news_article.img_url %>" alt="<%= @news_article.title %>" style="width:500px;height:250px;object-fit: cover;"></p>
+        <p><img class="show-img" src="<%= @news_article.img_url %>" alt="<%= @news_article.title %>" style="width:500px;height:250px;object-fit: cover;"></p>
         <p>URL: <%= link_to @news_article.url, "#{@news_article.url}", :target => "_blank" %></p>
 
-        <%= link_to 'Index page', news_articles_path %>
+        <%= link_to 'Home page', news_articles_path %>
 
     <% else %>
         <h1>Continue After Paying $5.00</h1>

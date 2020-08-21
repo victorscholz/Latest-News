@@ -9,7 +9,7 @@
     <% if @user.user_news_articles.empty?%>
         <p>You have no favorites</p> 
         <br>
-        <p>Please visit the 'Add Article'</p>
+        <p>Please visit the 'Add Article to Favorites'</p>
     <% else %>
         <% @user.user_news_articles.each do |user_news_article| %>
         <li><%= link_to user_news_article.news_article.title, news_article_path(user_news_article) %> <%= button_to "X", "/user_news_articles/#{user_news_article.id}", method: :delete %></li>

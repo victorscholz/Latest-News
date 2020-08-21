@@ -31,7 +31,7 @@ Instructions:
 11. Return to the home page by clicking "News Home", on the navigation bar, to continue viewing articles. 
 
 
-
+![image](https://user-images.githubusercontent.com/67060678/90936101-8c9da380-e3d2-11ea-925d-c19e9feca855.png)
 
 
 

@@ -4,6 +4,6 @@
 <%= form_for @user_news_article do |f| %>
     <%= f.label :news_article_id %>
     <%= f.collection_select :news_article_id, NewsArticle.all, :id, :title%>
-    <%= f.submit %>
+    <%= f.submit "Add Article"%>
 <% end %>
 </div>

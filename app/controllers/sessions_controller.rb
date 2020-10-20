@@ -1,37 +1,34 @@
 class SessionsController < ApplicationController
-  skip_before_action :authorized, only: [:new, :create]
-  
-    def reset_page_view_cookie
-        session.delete(:view_count)
+  skip_before_action :authorized, only: %i[new create]
 
-        redirect_back fallback_location: news_articles_path
-    end
+  def reset_page_view_cookie
+    session.delete(:view_count)
 
-    def new 
-    end
+    redirect_back fallback_location: news_articles_path
+  end
 
-    def show
-      @user = User.find_by(id: session[:user_id])
-      redirect_to user_path(@user)
+  def new; end
+
+  def show
+    @user = User.find_by(id: session[:user_id])
+    redirect_to user_path(@user)
+  end
+
+  def create
+    user = User.find_by(name: params[:session][:name])
+
+    if user && user.authenticate(params[:session][:password])
+      session[:user_id] = user.id
+      redirect_to news_articles_path
+    else
+      flash[:error] = 'username or password is incorrect'
+      redirect_to new_login_path
     end
-  
-    def create 
-      user = User.find_by(name: params[:session][:name])
-  
-      if user && user.authenticate(params[:session][:password])
-        session[:user_id] = user.id 
-        redirect_to news_articles_path
-      else 
-        flash[:error] = "username or password is incorrect"
-        redirect_to new_login_path
-      end
-  
-    end 
-  
-  
-    def logout 
-      session.delete(:user_id)
-  
-      redirect_to new_user_path
-    end 
+  end
+
+  def logout
+    session.delete(:user_id)
+
+    redirect_to new_user_path
+  end
 end
